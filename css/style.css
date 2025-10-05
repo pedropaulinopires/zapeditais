@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', 'San-serif';
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(201, 201, 201);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    border: 3px solid rgb(134, 134, 134);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding-left: 10px;
+}
+
+/* :root {
+    --Preto: #262223;
+    --LaranjaClaro: #F26E22;
+    --LaranjaEscuro: #c75c1f;
+    --MarromClaro: #733E20;
+    --MarromEscuro: #402C20;
+} */
