@@ -22,6 +22,7 @@ html {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #F4F5F7;
 }
 
 body::-webkit-scrollbar-track {
@@ -61,7 +62,7 @@ h1 {
     color: var(--VerdeEscuro);
     font-style: normal;
     font-weight: 800;
-    font-size: clamp(1.5rem, 9.6vw, 4rem);
+    font-size: clamp(1.5rem, 9vw, 4rem);
     line-height: 45px;
 }
 
@@ -128,11 +129,11 @@ a {
     font-size: clamp(1.1rem, 5.3vw, 1.5rem);
 }
 
-.error_text{
+.error_text {
     color: red;
 }
 
-.success_text{
+.success_text {
     color: var(--VerdeEscuro);
 }
 
@@ -209,13 +210,172 @@ a {
         line-height: 30px;
     }
 
+    img {
+        height: 15vw;
+    }
 }
 
 
 .img_2 {
     height: 120vw;
     margin-top: -20px;
+    margin-bottom: -40px;
 }
 
 
 /* SESSÂO 2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SESSÂO 3 */
+
+.sessao_3 {
+    h1 {
+        margin-bottom: 30px;
+    }
+}
+
+.sessao_3_content {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        font-family: 800;
+        font-size: clamp(1rem, 10vw, 1.5rem);
+    }
+
+    img {
+        height: 20vw;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
+        padding: 15px 15px 35px 15px;
+        max-width: 350px;
+    }
+
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+        color: var(--Cinza);
+        line-height: 24px;
+    }
+}
+
+
+/* SESSÂO 3 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SESSÂO 4 */
+.sessao_4 {
+    background-color: var(--VerdeEscuro);
+    padding-bottom: 30px;
+
+    h1 {
+        color: var(--Amarelo);
+        margin-bottom: 30px;
+
+        img {
+            height: 15vw;
+        }
+    }
+}
+
+.sessao_4_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    .strong_white {
+        background-color: transparent;
+        color: white;
+        padding: 0px;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #2e5d409b;
+        border-radius: 20em;
+        color: white;
+        padding: 5px 15px;
+
+        img {
+            height: 15vw;
+            margin-right: 10px;
+        }
+    }
+}
+
+/* SESSÂO 4 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SESSÂO 5 */
+.sessao_5 {
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .subtitle {
+        margin-bottom: 30px;
+        font-size: clamp(1rem, 5.5vw, 3rem);
+    }
+}
+
+/* SESSÂO 5 */
