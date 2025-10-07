@@ -1,551 +1,650 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <title>ZapEditais - Receba Licitações no WhatsApp Antes da Concorrência</title>
+    <meta name="description"
+        content="Nunca mais perca uma licitação! Receba alertas instantâneos de editais no WhatsApp e saia na frente dos concorrentes.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-    <title>ZapEditais - Nunca mais perca uma licitação! Receba editais no WhatsApp</title>
-    <!-- <meta name="description"
-        content="Nunca mais perca uma licitação! Receba alertas imediatos de novos editais no WhatsApp e saia na frente dos concorrentes. Participe 100% grátis, sem compromisso e sem spam.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta property="og:title" content="ZapEditais - Receba editais no WhatsApp em tempo real">
-    <meta property="og:description"
-        content="Participe do teste gratuito do ZapEditais e receba novos editais públicos automaticamente pelo WhatsApp."> -->
+        :root {
+            --primary: #417F58;
+            --primary-dark: #2e5d40;
+            --accent: #D4B326;
+            --accent-light: #f5e88c;
+            --text-dark: #1a1a1a;
+            --text-gray: #707070;
+            --bg-light: #F4F5F7;
+            --success: #61C359;
+            --error: #dc2626;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(65, 127, 88, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 5% 3rem;
+            background: linear-gradient(180deg, var(--white) 0%, var(--bg-light) 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--accent) 0%, var(--accent-light) 100%);
+            padding: 0 0.5rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .hero-text p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #3c9631 0%, #61C359 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(61, 150, 49, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(61, 150, 49, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(61, 150, 49, 0.4);
+            }
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(61, 150, 49, 0.5);
+        }
+
+        .benefits-list {
+            margin-top: 2rem;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .mockup {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            padding: 4rem 5%;
+            background: var(--white);
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: left;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 2px solid var(--error);
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 2px solid var(--success);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .problem-card h3 {
+            color: var(--error);
+        }
+
+        .solution-card h3 {
+            color: var(--primary);
+        }
+
+        .comparison-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+        }
+
+        .benefits .section-title,
+        .benefits .section-subtitle {
+            color: white;
+        }
+
+        .benefits-grid {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .benefit-card strong {
+            background: transparent;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 5rem 5%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .final-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .final-benefits {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .final-benefits p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .cta-wrapper {
+            margin-top: 2.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .header-content {
+                padding: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header-cta {
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .cta-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-family: 'Roboto', 'San-serif';
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
-    font-family: 'Inter', sans-serif;
-}
-
-:root {
-    --VerdeEscuro: #417F58;
-    --Amarelo: #D4B326;
-    --Cinza: #707070;
-}
-
-body,
-html {
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #F4F5F7;
-}
-
-body::-webkit-scrollbar-track {
-    background: rgb(201, 201, 201);
-    /* color of the tracking area */
-}
-
-body::-webkit-scrollbar-thumb {
-    border-radius: 50px;
-    border: 3px solid rgb(134, 134, 134);
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    padding-left: 10px;
-}
-
-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 80px;
-    padding: 0px 10px;
-}
-
-strong {
-    background-color: var(--Amarelo);
-    border-radius: 20px;
-    padding: 0px 10px;
-}
-
-h1 {
-    color: var(--VerdeEscuro);
-    font-style: normal;
-    font-weight: 800;
-    font-size: clamp(1.5rem, 9vw, 3rem);
-}
-
-h2 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
-    color: var(--Cinza);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0.1em 1.0em -0.5em #2e5d40;
-    }
-
-    50% {
-        transform: scale(1.02);
-        box-shadow: 0 0.3em 1.5em -0.5em #69ba81;
-    }
-
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0.1em 1.0em -0.5em #2e5d40;
-    }
-}
-
-.btn_participar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: inherit;
-    font-weight: 600;
-    padding: 1em 1em;
-    color: white;
-    background: #ad5389;
-    background: linear-gradient(0deg, #3c9631 0%, #61C359 100%);
-    border: none;
-    letter-spacing: 0.05em;
-    border-radius: 20em;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: clamp(50px, 90vw, 300px);
-    /* ✨ animação de pulsar */
-    animation: pulse 1.8s ease-in-out infinite;
-}
-
-.btn_participar:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0.9em 1.8em -0.5em #14a73e98;
-}
-
-.btn_participar:active {
-    transform: scale(0.98);
-    box-shadow: 0 0.4em 1em -0.5em #14a73e98;
-}
-
-a {
-    text-decoration: none;
-    display: flex;
-    font-size: clamp(1rem, 5.3vw, 1.1rem);
-}
-
-.error_text {
-    color: red;
-}
-
-.success_text {
-    color: var(--VerdeEscuro);
-}
-
-
-
-
-
-
-
-
-
-
-
-/* SESSÂO 1 */
-.img_logo_header {
-    height: clamp(60px, 25vw, 100px);
-}
-
-
-
-.img_header {
-    height: clamp(60px, 25vw, 100px);
-}
-
-.sessao_1 {
-    gap: 10px;
-}
-
-.sessao_1_content {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: clamp(50px, 100vw, 600px);
-    padding: 0px 10px;
-
-
-    h2 {
-        margin-top: 5px;
-        margin-bottom: 20px;
-    }
-
-    .btn_participar {
-        margin-bottom: 15px;
-    }
-
-    .ofert {
-        line-height: 30px;
-    }
-
-    /* h1 {
-    color: var(--VerdeEscuro);
-    font-style: normal;
-    font-weight: 800;
-    font-size: clamp(1.5rem, 9vw, 2.5rem);
-}
-
-h2 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: clamp(1rem, 3.5vw, 1.05rem);
-    color: var(--Cinza);
-} */
-}
-
-.banner_home {
-    height: clamp(50px, 100vw, 500px);
-}
-
-/* SESSÂO 1 */
-
-
-
-
-
-
-
-
-
-
-/* SESSÂO 2 */
-.sessao_2 {
-    margin-bottom: 150px;
-
-    h1 {
-        margin-bottom: 10px;
-    }
-
-}
-
-.sessao_2_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: clamp(50px, 100vw, 500px);
-    gap: 15px;
-
-    .subtitle {
-        font-size: clamp(1rem, 5.5vw, 1.2rem);
-    }
-
-    img {
-        height: clamp(15px, 100vw, 40px);
-    }
-}
-
-
-.img_2 {
-    height: clamp(50px, 100vw, 500px);
-    ;
-    margin-top: -20px;
-    margin-bottom: -40px;
-}
-
-
-/* SESSÂO 2 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* SESSÂO 3 */
-
-.sessao_3 {
-    h1 {
-        margin-bottom: 30px;
-    }
-}
-
-.sessao_3_content {
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-
-    h3 {
-        margin-bottom: 5px;
-        display: flex;
-        align-items: center;
-        font-family: 800;
-        font-size: clamp(1rem, 10vw, 1.3rem);
-    }
-
-    img {
-        height: clamp(50px, 20vw, 80px);
-    }
-
-    .card {
-        background-color: white;
-        border-radius: 20px;
-        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
-        padding: 15px 15px 35px 15px;
-        max-width: 350px;
-    }
-
-    p {
-        font-style: normal;
-        font-weight: 500;
-        font-size: clamp(1rem, 3.5vw, 1.05rem);
-        color: var(--Cinza);
-        line-height: 24px;
-    }
-}
-
-
-/* SESSÂO 3 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* SESSÂO 4 */
-.sessao_4 {
-    background-color: var(--VerdeEscuro);
-    padding-bottom: 30px;
-
-    h1 {
-        color: var(--Amarelo);
-        margin-bottom: 30px;
-        text-align: center;
-        margin-top: 15px;
-
-        img {
-            height: clamp(20px, 15vw, 70px);
-        }
-    }
-}
-
-.sessao_4_content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-
-    .strong_white {
-        background-color: transparent;
-        color: white;
-        padding: 0px;
-    }
-
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #2e5d409b;
-        border-radius: 20em;
-        color: white;
-        padding: 5px 15px;
-        width: clamp(20px, 90vw, 800px);
-
-        img {
-            height: clamp(50px, 15vw, 70px);
-            margin-right: 10px;
-        }
-    }
-}
-
-/* SESSÂO 4 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* SESSÂO 5 */
-.sessao_5 {
-
-    h1 {
-        margin-bottom: 40px;
-    }
-
-    .subtitle {
-        margin-bottom: 30px;
-        font-size: clamp(1rem, 5.5vw, 1.1rem);
-    }
-
-    .sessao_5_content {
-        width: clamp(50px, 100vw, 600px);
-    }
-
-    .img_3{
-        height: clamp(50px, 100vw, 400px);
-        border-radius: 20px;
-    }
-
-    .btn_participar{
-        margin-bottom: 40px;
-    }
-    
-}
-
-/* SESSÂO 5 */
-</style>
 <body>
-    <header>
-        <img src="imgs/logo.png" alt="logo header" class="img_logo_header">
-        <img src="imgs/header.png" alt="img header" class="img_header">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>ZapEditais</span>
+            </div>
+            <a href="#cta" class="header-cta">Começar Agora</a>
+        </div>
     </header>
 
-    <section class="sessao_1">
-        <div class="sessao_1_content">
-            <h1><strong>Nunca</strong> mais perca uma licitação</h1>
-            <h2 class="subtitle">Receba alertas imediatos no WhatsApp e enquanto seus concorrentes ainda nem sabem do
-                edital, você já está
-                preparando a sua proposta!</h2>
-            <a href="#" target="_blank" rel="safe" class="btn_participar">Quero ser testador pioneiro</a>
-            <h2 class="ofert">✅ Sem compromisso</br>🚫 Sem spam </br>🎁 Participe 100% grátis</br>💳 Não precisa de
-                cartão de crédito
-            </h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="highlight">Nunca</span> mais perca uma licitação valiosa</h1>
+                <p>Receba alertas instantâneos de editais no WhatsApp e enquanto seus concorrentes ainda nem sabem do
+                    edital, você já está preparando a sua proposta!.</p>
+                <a href="#cta" class="cta-primary">✨ Quero Ser Testador Pioneiro</a>
+
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>100% Gratuito</strong> - Sem cartão de crédito</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Sem Compromisso</strong> - Cancele quando quiser</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Zero Spam</strong> - Apenas editais do seu interesse</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Configuração em 2 minutos</strong> - Comece hoje mesmo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <svg class="mockup" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="280" height="580" rx="30" fill="#1a1a1a" />
+                    <rect x="20" y="20" width="260" height="560" rx="25" fill="#25D366" />
+                    <rect x="30" y="80" width="240" height="480" rx="15" fill="#fff" />
+                    <rect x="45" y="100" width="210" height="60" rx="10" fill="#dcf8c6" />
+                    <rect x="55" y="110" width="120" height="8" rx="4" fill="#417F58" />
+                    <rect x="55" y="125" width="180" height="8" rx="4" fill="#707070" />
+                    <rect x="55" y="140" width="160" height="8" rx="4" fill="#707070" />
+                    <rect x="45" y="180" width="210" height="60" rx="10" fill="#dcf8c6" />
+                    <rect x="55" y="190" width="140" height="8" rx="4" fill="#417F58" />
+                    <rect x="55" y="205" width="170" height="8" rx="4" fill="#707070" />
+                    <rect x="55" y="220" width="150" height="8" rx="4" fill="#707070" />
+                    <rect x="45" y="260" width="210" height="60" rx="10" fill="#dcf8c6" />
+                    <rect x="55" y="270" width="130" height="8" rx="4" fill="#417F58" />
+                    <rect x="55" y="285" width="160" height="8" rx="4" fill="#707070" />
+                    <rect x="55" y="300" width="140" height="8" rx="4" fill="#707070" />
+                    <circle cx="150" cy="50" r="15" fill="#fff" />
+                    <path d="M145 50L148 53L155 46" stroke="#25D366" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
         </div>
-        <img src="imgs/banner_home.png" alt="imagem inicial" class="banner_home">
     </section>
 
-    <section class="sessao_2">
-        <div class="sessao_2_content">
-            <h1>Licitações no WhatsApp <strong>antes</strong> da concorrência</h1>
-            <h2 class="subtitle">Já perdeu uma licitação valiosa porque não soube que o edital foi publicado?</h2>
-            <h2 class="subtitle error_text"> <img src="imgs/error.png" alt="error"> Enquanto você descobre tarde demais,
-                seus concorrentes já estão enviando propostas . . .</h2>
-            <h2 class="subtitle success_text"><img src="imgs/success.png" alt="sucess"> Com o ZapEditais, você recebe
-                alertas no WhatsApp em tempo real e sai na frente!</h2>
-            </h2>
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="section-content">
+            <h2 class="section-title">Licitações no WhatsApp <span class="highlight">ANTES</span> da Concorrência</h2>
+            <p class="section-subtitle">Já perdeu uma licitação valiosa porque descobriu o edital tarde demais?</p>
+
+            <div class="comparison">
+                <div class="comparison-card problem-card">
+                    <h3>❌ Sem o ZapEditais</h3>
+                    <p>Você descobre editais tarde demais, quando os concorrentes já estão enviando propostas. Perde
+                        tempo vasculhando sites e portais atrás de oportunidades.</p>
+                </div>
+
+                <div class="comparison-card solution-card">
+                    <h3>✅ Com o ZapEditais</h3>
+                    <p>Receba alertas instantâneos no WhatsApp assim que novos editais são publicados. Saia na frente e
+                        prepare propostas vencedoras com tempo de sobra.</p>
+                </div>
+            </div>
         </div>
-        <img src="imgs/img_2.png" alt="img_2.png" class="img_2">
     </section>
 
-    <section class="sessao_3">
-        <h1 style="text-align: center;">Por que o ZapEditais vai <strong>mudar</strong> o jogo para você</h1>
-        <div class="sessao_3_content">
-            <div class="card">
-                <h3><img src="imgs/raio.png" alt="raio">Alertas Imediatos</h3>
-                <p>Seja o primeiro a saber! Editais do seu segmento chegam no seu WhatsApp em tempo real.</p>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-content">
+            <h2 class="section-title">Por que o ZapEditais vai <span class="highlight">mudar o jogo</span> para você
+            </h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Alertas Imediatos</h3>
+                <p>Seja o primeiro a saber! Novos editais do seu segmento chegam no seu WhatsApp em tempo real, 24/7.
+                </p>
             </div>
 
-            <div class="card">
-                <h3><img src="imgs/mira.png" alt="mira" style="margin-right: 10px;">Filtros Inteligentes</h3>
-                <p>Receba apenas o que interessa: valor, região, serviço, modalidade. Zero ruído, só oportunidades
-                    certeiras.</p>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Filtros Inteligentes</h3>
+                <p>Receba apenas o que interessa: configure valor, região, serviço e modalidade. Zero ruído, só
+                    oportunidades certeiras.</p>
             </div>
 
-            <div class="card">
-                <h3><img src="imgs/grafico.png" alt="grafico" style="margin-right: 10px;">Controle Total</h3>
-                <p>Defina valores, modalidades, serviços e regiões no seu painel exclusivo. Você personaliza uma vez e
-                    recebe apenas os editais certos.</p>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Controle Total</h3>
+                <p>Painel exclusivo para personalizar seus alertas. Configure uma vez e receba apenas os editais
+                    perfeitos para seu negócio.</p>
             </div>
 
-            <div class="card">
-                <h3><img src="imgs/money.png" alt="money" style="margin-right: 10px;">Mais Vitórias</h3>
-                <p>Maximize suas chances de ganhar licitações com alertas exclusivos no WhatsApp antes dos concorrentes.
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Mais Vitórias</h3>
+                <p>Maximize suas chances de ganhar licitações com informações exclusivas antes dos concorrentes saberem.
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="sessao_4">
-        <h1><img src="imgs/presente.png" alt="presente"> Benefícios exclusivos para testadores pioneiros</h1>
-        <div class="sessao_4_content">
-            <div class="card">
-                <img src="imgs/stars.png" alt="stars">
-                <p><strong class="strong_white">Acesso Antecipado:</strong> Use o ZapEditais antes de todos</p>
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="section-content">
+            <h2 class="section-title">🎁 Benefícios Exclusivos para Testadores Pioneiros</h2>
+            <p class="section-subtitle">Vagas limitadas! Seja um dos primeiros a usar o ZapEditais</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⭐</div>
+                <p><strong>Acesso Antecipado:</strong> Use o ZapEditais antes do lançamento oficial ao público</p>
             </div>
 
-            <div class="card">
-                <img src="imgs/stars.png" alt="stars">
-                <p><strong class="strong_white">1 Mês Totalmente Grátis:</strong> Teste todas as funcionalidades sem
-                    pagar nada</p>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎁</div>
+                <p><strong>1 Mês Totalmente Grátis:</strong> Teste todas as funcionalidades premium sem pagar nada</p>
             </div>
 
-            <div class="card">
-                <img src="imgs/stars.png" alt="stars">
-                <p><strong class="strong_white">50% de Desconto no 2º Mês: </strong> Economia garantida na renovação</p>
+            <div class="benefit-card">
+                <div class="benefit-icon">💎</div>
+                <p><strong>50% de Desconto no 2º Mês:</strong> Economia garantida quando decidir continuar</p>
             </div>
 
-            <div class="card">
-                <img src="imgs/stars.png" alt="stars">
-                <p><strong class="strong_white">Influencie o Produto:</strong> Suas sugestões moldarão as
-                    funcionalidades finais</p>
+            <div class="benefit-card">
+                <div class="benefit-icon">🚀</div>
+                <p><strong>Influencie o Produto:</strong> Suas sugestões e feedback moldarão as funcionalidades finais
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="sessao_5">
-        <h1>Garanta sua vaga de testador pioneiro <strong>AGORA</strong></h1>
-        <div class="sessao_5_content">
-            <h2 class="subtitle">📲 Receba editais no WhatsApp em tempo real
-                </br>
-                </br>
-                ⚡ Fique sempre à frente da concorrência
-                </br>
-                </br>
-                ✅ Sem compromisso, sem burocracia e sem spam
-                </br>
-                </br>
-                🔒 Participação 100% gratuita e segura (sem cartão de crédito)</h2>
-            <a href="#" target="_blank" rel="safe" class="btn_participar">Quero ser testador pioneiro</a>
+    <!-- Final CTA -->
+    <section class="final-cta" id="cta">
+        <div class="final-cta-content">
+            <h2>Garanta Sua Vaga de Testador Pioneiro <span class="highlight">AGORA</span></h2>
+
+            <div class="final-benefits">
+                <p>📲 Receba editais no WhatsApp em tempo real</p>
+                <p>⚡ Fique sempre à frente da concorrência</p>
+                <p>✅ Sem compromisso, sem burocracia e sem spam</p>
+                <p>🔒 Participação 100% gratuita (sem cartão de crédito)</p>
+                <p>🎯 Configure filtros personalizados em 2 minutos</p>
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="https://wa.me/seu-numero-aqui" class="cta-primary" target="_blank">🚀 Quero Começar Agora
+                    Gratuitamente</a>
+            </div>
         </div>
-        <img src="imgs/img_3.png" alt="img_3" class="img_3">
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ZapEditais. Todos os direitos reservados.</p>
+        <p>Receba licitações no WhatsApp e nunca mais perca uma oportunidade.</p>
+    </footer>
 </body>
 
 </html>
