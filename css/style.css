@@ -44,11 +44,12 @@ header {
 
 section {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     margin-top: 25px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     padding: 0px 10px;
 }
 
@@ -62,16 +63,14 @@ h1 {
     color: var(--VerdeEscuro);
     font-style: normal;
     font-weight: 800;
-    font-size: clamp(1.5rem, 9vw, 4rem);
-    line-height: 45px;
+    font-size: clamp(1.5rem, 9vw, 3rem);
 }
 
 h2 {
     font-style: normal;
     font-weight: 500;
-    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
     color: var(--Cinza);
-    line-height: 24px;
 }
 
 @keyframes pulse {
@@ -108,7 +107,7 @@ h2 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 90vw;
+    width: clamp(50px, 90vw, 300px);
     /* ✨ animação de pulsar */
     animation: pulse 1.8s ease-in-out infinite;
 }
@@ -126,7 +125,7 @@ h2 {
 a {
     text-decoration: none;
     display: flex;
-    font-size: clamp(1.1rem, 5.3vw, 1.5rem);
+    font-size: clamp(1rem, 5.3vw, 1.1rem);
 }
 
 .error_text {
@@ -149,13 +148,13 @@ a {
 
 /* SESSÂO 1 */
 .img_logo_header {
-    height: 30vw;
+    height: clamp(60px, 25vw, 100px);
 }
 
 
 
 .img_header {
-    height: 30vw;
+    height: clamp(60px, 25vw, 100px);
 }
 
 .sessao_1 {
@@ -166,9 +165,13 @@ a {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: clamp(50px, 100vw, 600px);
+    padding: 0px 10px;
+
 
     h2 {
-        margin-bottom: 15px;
+        margin-top: 5px;
+        margin-bottom: 20px;
     }
 
     .btn_participar {
@@ -178,10 +181,24 @@ a {
     .ofert {
         line-height: 30px;
     }
+
+    /* h1 {
+    color: var(--VerdeEscuro);
+    font-style: normal;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 9vw, 2.5rem);
+}
+
+h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(1rem, 3.5vw, 1.05rem);
+    color: var(--Cinza);
+} */
 }
 
 .banner_home {
-    height: 100vw;
+    height: clamp(50px, 100vw, 500px);
 }
 
 /* SESSÂO 1 */
@@ -196,28 +213,36 @@ a {
 
 
 /* SESSÂO 2 */
+.sessao_2 {
+    margin-bottom: 150px;
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+}
 
 .sessao_2_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    gap: 25px;
+    width: clamp(50px, 100vw, 500px);
+    gap: 15px;
 
     .subtitle {
-        font-size: clamp(1rem, 5.5vw, 3rem);
-        line-height: 30px;
+        font-size: clamp(1rem, 5.5vw, 1.2rem);
     }
 
     img {
-        height: 15vw;
+        height: clamp(15px, 100vw, 40px);
     }
 }
 
 
 .img_2 {
-    height: 120vw;
+    height: clamp(50px, 100vw, 500px);
+    ;
     margin-top: -20px;
     margin-bottom: -40px;
 }
@@ -260,11 +285,11 @@ a {
         display: flex;
         align-items: center;
         font-family: 800;
-        font-size: clamp(1rem, 10vw, 1.5rem);
+        font-size: clamp(1rem, 10vw, 1.3rem);
     }
 
     img {
-        height: 20vw;
+        height: clamp(50px, 20vw, 80px);
     }
 
     .card {
@@ -278,7 +303,7 @@ a {
     p {
         font-style: normal;
         font-weight: 500;
-        font-size: clamp(1rem, 3.5vw, 1.5rem);
+        font-size: clamp(1rem, 3.5vw, 1.05rem);
         color: var(--Cinza);
         line-height: 24px;
     }
@@ -309,9 +334,11 @@ a {
     h1 {
         color: var(--Amarelo);
         margin-bottom: 30px;
+        text-align: center;
+        margin-top: 15px;
 
         img {
-            height: 15vw;
+            height: clamp(20px, 15vw, 70px);
         }
     }
 }
@@ -337,9 +364,10 @@ a {
         border-radius: 20em;
         color: white;
         padding: 5px 15px;
+        width: clamp(20px, 90vw, 800px);
 
         img {
-            height: 15vw;
+            height: clamp(50px, 15vw, 70px);
             margin-right: 10px;
         }
     }
@@ -368,13 +396,27 @@ a {
 
 /* SESSÂO 5 */
 .sessao_5 {
+
     h1 {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     .subtitle {
         margin-bottom: 30px;
-        font-size: clamp(1rem, 5.5vw, 3rem);
+        font-size: clamp(1rem, 5.5vw, 1.1rem);
+    }
+
+    .sessao_5_content {
+        width: clamp(50px, 100vw, 600px);
+    }
+
+    .img_3{
+        height: clamp(50px, 100vw, 400px);
+        border-radius: 20px;
+    }
+
+    .btn_participar{
+        margin-bottom: 40px;
     }
 }
 
