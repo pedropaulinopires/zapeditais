@@ -466,7 +466,6 @@
             }
         }
     </style>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17620244278"></script>
     <script>
@@ -476,6 +475,22 @@
 
         gtag('config', 'AW-17620244278');
     </script>
+    <!-- Event snippet for Clique de saída conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion() {
+            var callback = function () { };
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17620244278/gPiyCKXVnaobELau_tFB',
+                'value': 1.0,
+                'currency': 'BRL',
+                'event_callback': callback
+            });
+
+            return true;
+        }
+    </script>
+
 </head>
 
 <body>
@@ -487,8 +502,7 @@
                 <span>ZapEditais</span>
             </div>
             <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
-                onclick="return gtag_report_conversion()"
-                target="_blank" class="header-cta">
+                onclick="return gtag_report_conversion()" target="_blank" class="header-cta">
                 ✨ Quero Ser Testador Pioneiro
             </a>
         </div>
@@ -505,8 +519,7 @@
                 <p>O ZapEditais te avisa na hora, direto no WhatsApp, assim que sai uma nova licitação. Enquanto isso,
                     seus concorrentes ainda nem sonham que ela existe 😉</p>
                 <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
-                    onclick="return gtag_report_conversion()"
-                    target="_blank" class="cta-primary">
+                    onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
                     ✨ Quero Ser Testador Pioneiro
                 </a>
 
@@ -751,8 +764,7 @@
 
         <div style="text-align: center; margin-top: 2rem;">
             <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
-                onclick="return gtag_report_conversion()"
-                target="_blank" class="cta-primary">
+                onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
                 ✨ Quero Ser Testador Pioneiro
             </a>
         </div>
@@ -773,8 +785,7 @@
 
             <div class="cta-wrapper">
                 <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
-                   onclick="return gtag_report_conversion()"
-                    target="_blank" class="cta-primary">
+                    onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
                     ✨ Quero Ser Testador Pioneiro
                 </a>
             </div>
@@ -933,20 +944,6 @@
         <p>&copy; 2025 ZapEditais. Todos os direitos reservados.</p>
         <p>Receba licitações no WhatsApp e nunca mais perca uma oportunidade.</p>
     </footer>
-
-    <!-- Event snippet for Clique de saída (1) conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_conversion() {
-            gtag('event', 'conversion', {
-                'send_to': 'AW-17620244278/OT6mCN_TnaobELau_tFB',
-                'value': 1.0,
-                'currency': 'BRL',
-                'event_callback': callback
-            });
-            return true;
-        }
-    </script>
 </body>
 
 </html>
