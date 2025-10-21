@@ -149,6 +149,29 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
+        .urgency-banner {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            font-weight: 600;
+            color: var(--text-dark);
+            animation: urgent-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes urgent-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
         @keyframes pulse {
 
             0%,
@@ -503,7 +526,7 @@
             </div>
             <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
                 onclick="return gtag_report_conversion()" target="_blank" class="header-cta">
-                ✨ Quero Ser Testador Pioneiro
+                ⚡ Ativar Meus Alertas Agora
             </a>
         </div>
     </header>
@@ -518,15 +541,19 @@
                 </h1>
                 <p>O ZapEditais te avisa na hora, direto no WhatsApp, assim que sai uma nova licitação. Enquanto isso,
                     seus concorrentes ainda nem sonham que ela existe 😉</p>
+                <div class="urgency-banner">
+                    ⚠️ <strong>ATENÇÃO:</strong> Cada minuto conta! Comece hoje e nunca mais perca uma oportunidade por
+                    descobrir tarde demais.
+                </div>
                 <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
                     onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
-                    ✨ Quero Ser Testador Pioneiro
+                    🚀 Receber Editais no WhatsApp
                 </a>
 
                 <div class="benefits-list">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span><strong>100% Gratuito</strong> - Sem cartão de crédito</span>
+                        <span><strong>1º mês 100% Gratuito</strong> - Sem cartão de crédito</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
@@ -538,7 +565,7 @@
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span><strong>Vagas limitadas</strong> para o acesso antecipado</span>
+                        <span><strong>Comece em 2 minutos</strong> - Configure e pronto!</span>
                     </div>
                 </div>
             </div>
@@ -727,45 +754,47 @@
     <!-- Benefits Section -->
     <section class="benefits">
         <div class="section-content">
-            <h2 class="section-title">🎁 Benefícios Exclusivos para Testadores Pioneiros</h2>
-            <p class="section-subtitle">Vagas limitadas! Seja um dos primeiros a usar o ZapEditais</p>
+            <h2 class="section-title">🎁 O Que Você Ganha Começando Agora</h2>
+            <p class="section-subtitle">Aproveite essa oportunidade!</p>
         </div>
 
         <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="benefit-icon">⭐</div>
-                <p><strong>Acesso Antecipado:</strong> Use o ZapEditais antes do lançamento oficial ao público</p>
+                <p><strong>Acesso Imediato:</strong> Configure em minutos e comece a receber alertas hoje mesmo</p>
             </div>
 
             <div class="benefit-card">
-                <div class="benefit-icon">🎁</div>
-                <p><strong>1 Mês Totalmente Grátis:</strong> Teste todas as funcionalidades premium sem pagar nada</p>
+                <div class="benefit-icon">🎯</div>
+                <p><strong>Filtros Personalizados:</strong> Defina região, valor e categorias - receba só o que
+                    realmente importa.</p>
             </div>
 
             <div class="benefit-card">
                 <div class="benefit-icon">💎</div>
-                <p><strong>50% de Desconto no 2º Mês:</strong> Economia garantida quando decidir continuar</p>
+                <p><strong>1º mês 100% Gratuito:</strong> Sem taxas escondidas, sem cartão de crédito, sem compromisso
+                </p>
             </div>
 
             <div class="benefit-card">
                 <div class="benefit-icon">🚀</div>
-                <p><strong>Influencie o Produto:</strong> Suas sugestões e feedback moldarão as funcionalidades finais
-                </p>
+                <p><strong>Vantagem Competitiva:</strong> Descubra licitações antes da concorrência e prepare propostas
+                    com tempo e precisão</p>
             </div>
         </div>
 
         <div
             style="max-width: 800px; margin: 3rem auto 0; text-align: center; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; border: 2px solid rgba(212, 179, 38, 0.5);">
             <p style="font-size: 1.15rem; font-weight: 600; line-height: 1.7;">
-                ⚠️ As vagas da fase beta são extremamente limitadas e encerram assim que atingirmos o número máximo de
-                testadores.
+                ⚠️ Cada dia que passa é uma licitação que você pode estar perdendo. Comece hoje e vire o fornecedor que
+                sempre chega primeiro.
             </p>
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
+            <a href="https://wa.me/5562984282805?text=Quero%20come%C3%A7ar%20a%20receber%20licita%C3%A7%C3%B5es%20no%20WhatsApp%20agora!"
                 onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
-                ✨ Quero Ser Testador Pioneiro
+                ⚙️ Ativar Alertas Gratuitos no WhatsApp
             </a>
         </div>
     </section>
@@ -773,20 +802,20 @@
     <!-- Final CTA -->
     <section class="final-cta" id="cta">
         <div class="final-cta-content">
-            <h2>Garanta Sua Vaga de Testador Pioneiro <span class="highlight">AGORA</span></h2>
+            <h2>Comece a Receber Licitações <span class="highlight">AGORA MESMO</span></h2>
 
             <div class="final-benefits">
-                <p>📲 Receba editais no WhatsApp em tempo real</p>
-                <p>⚡ Fique sempre à frente da concorrência</p>
-                <p>✅ Sem compromisso, sem burocracia e sem spam</p>
-                <p>🔒 Participação 100% gratuita (sem cartão de crédito)</p>
-                <p>🎯 Defina seus filtros uma única vez e receba só o que importa</p>
+                <p>📲 Configure em 2 minutos pelo WhatsApp</p>
+                <p>⚡ Alertas instantâneos toda vez que sair um novo edital</p>
+                <p>✅ Totalmente gratuito - sem cartão, sem taxas, sem pegadinhas</p>
+                <p>🎯 Filtre por região, valor e categoria automaticamente</p>
+                <p>🏆 Fique à frente da concorrência e ganhe mais contratos</p>
             </div>
 
             <div class="cta-wrapper">
-                <a href="https://wa.me/5562984282805?text=Quero%20ser%20testador%20pioneiro%20do%20ZapEditais%E2%9A%A1%20e%20ficar%20%C3%A0%20frente%20da%20concorr%C3%AAncia!"
+                <a href="https://wa.me/5562984282805?text=Quero%20come%C3%A7ar%20a%20receber%20licita%C3%A7%C3%B5es%20no%20WhatsApp%20agora!"
                     onclick="return gtag_report_conversion()" target="_blank" class="cta-primary">
-                    ✨ Quero Ser Testador Pioneiro
+                    🔔 Começar Agora e Não Perder Nenhuma Licitação
                 </a>
             </div>
 
@@ -937,9 +966,9 @@
     <!-- Footer -->
     <footer class="footer">
         <p style="margin-bottom: 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.9);">
-            <strong>O ZapEditais está em fase de testes e evolução contínua.</strong><br>
-            Ao participar como testador pioneiro, você ganha acesso antecipado, ajuda a moldar o produto e nunca mais
-            perde uma licitação por falta de aviso.
+            <strong>Pare de perder licitações por falta de informação.</strong><br>
+            O ZapEditais te coloca à frente da concorrência com alertas instantâneos no WhatsApp. Configure uma vez e
+            receba todas as oportunidades que importam para o seu negócio.
         </p>
         <p>&copy; 2025 ZapEditais. Todos os direitos reservados.</p>
         <p>Receba licitações no WhatsApp e nunca mais perca uma oportunidade.</p>
