@@ -34,8 +34,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -56,10 +54,12 @@
     .hero {
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
       color: var(--color-white);
-      padding: 4rem 0 5rem;
-      text-align: center;
+      padding: 3rem 0;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
 
     .hero::before {
@@ -73,30 +73,21 @@
       pointer-events: none;
     }
 
-    .hero-content {
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
       position: relative;
       z-index: 1;
     }
 
-    .hero-icon {
-      margin-bottom: 2rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
+    .hero-content {
+      text-align: left;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 1.5rem;
@@ -104,13 +95,37 @@
     }
 
     .hero .subheadline {
-      font-size: 1.25rem;
-      line-height: 1.5;
+      font-size: 1.2rem;
+      line-height: 1.6;
       margin-bottom: 2.5rem;
       opacity: 0.95;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 140%;
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(-2deg);
+      }
     }
 
     /* Buttons */
@@ -553,12 +568,41 @@
         --section-spacing: 3rem;
       }
 
+      .hero {
+        min-height: 100vh;
+        padding: 2rem 0;
+      }
+
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 90vh;
+      }
+
+      .hero-content {
+        text-align: center;
+        order: 2;
+      }
+
+      .hero-image {
+        order: 1;
+        max-width: 240px;
+        margin: 0 auto;
+        margin-bottom: -20px;
+      }
+
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
       }
 
       .hero .subheadline {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
       }
 
       .section-title {
@@ -568,6 +612,8 @@
       .btn {
         padding: 1rem 2rem;
         font-size: 1rem;
+        width: 100%;
+        max-width: 100%;
       }
 
       .benefits-grid,
@@ -647,39 +693,67 @@
   </script>
 
 </head>
-
 <body>
+
+   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-icon">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="60" r="60" fill="rgba(255,255,255,0.1)" />
-            <path
-              d="M60 20C37.909 20 20 37.909 20 60C20 82.091 37.909 100 60 100C82.091 100 100 82.091 100 60C100 37.909 82.091 20 60 20ZM60 90C43.431 90 30 76.569 30 60C30 43.431 43.431 30 60 30C76.569 30 90 43.431 90 60C90 76.569 76.569 90 60 90Z"
-              fill="white" opacity="0.9" />
-            <path
-              d="M60 40C49.507 40 41 48.507 41 59C41 69.493 49.507 78 60 78C70.493 78 79 69.493 79 59C79 48.507 70.493 40 60 40Z"
-              fill="#D4B326" />
-            <rect x="57" y="45" width="6" height="20" rx="3" fill="white" />
-            <rect x="57" y="70" width="6" height="6" rx="3" fill="white" />
-            <path d="M35 35L45 45M85 35L75 45M35 85L45 75M85 85L75 75" stroke="white" stroke-width="4"
-              stroke-linecap="round" opacity="0.7" />
-          </svg>
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <h1>Licitação tem prazo curto! Ser avisado rapidamente é vantagem...</h1>
+          <p class="subheadline">
+            Editais são publicados todos os dias. Quem recebe aviso imediato prepara propostas competitivas.
+            Quem descobre tarde perde oportunidades.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone=556284282805&text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20a%20receber%20alertas%20de%20licita%C3%A7%C3%B5es%20no%20meu%20WhatsApp!"
+            onclick="return gtag_report_conversion()" target="_blank" class="btn btn-primary">
+            QUERO RECEBER ALERTA DE EDITAIS NO WHATSAPP
+          </a>
         </div>
-        <h1>Licitação tem prazo curto... Ser avisado rapidamente é vantagem!</h1>
-        <p class="subheadline">
-          Editais são publicados todos os dias. Quando você descobre no dia da publicação, tem tempo para negociar
-          preços e revisar documentos. Quando descobre uma semana depois, o prazo já está apertado e você compete
-          improvisando.
-        </p>
-        <a href="https://api.whatsapp.com/send?phone=556284282805&text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20a%20receber%20alertas%20de%20licita%C3%A7%C3%B5es%20no%20meu%20WhatsApp!"
-          onclick="return gtag_report_conversion()" target="_blank" class="btn btn-primary">
-          QUERO RECEBER ALERTA DE EDITAIS NO WHATSAPP
-        </a>
+        <div class="hero-image" style="margin-top: -80px;">
+          <img src="imgs/tela1.png" alt="Exemplo de alerta de licitação no WhatsApp" />
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- <section class="hero">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+                    
+          <div class="hero-icon">
+            <svg width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="60" r="60" fill="rgba(255,255,255,0.1)" />
+              <path
+                d="M60 20C37.909 20 20 37.909 20 60C20 82.091 37.909 100 60 100C82.091 100 100 82.091 100 60C100 37.909 82.091 20 60 20ZM60 90C43.431 90 30 76.569 30 60C30 43.431 43.431 30 60 30C76.569 30 90 43.431 90 60C90 76.569 76.569 90 60 90Z"
+                fill="white" opacity="0.9" />
+              <path
+                d="M60 40C49.507 40 41 48.507 41 59C41 69.493 49.507 78 60 78C70.493 78 79 69.493 79 59C79 48.507 70.493 40 60 40Z"
+                fill="#D4B326" />
+              <rect x="57" y="45" width="6" height="20" rx="3" fill="white" />
+              <rect x="57" y="70" width="6" height="6" rx="3" fill="white" />
+              <path d="M35 35L45 45M85 35L75 45M35 85L45 75M85 85L75 75" stroke="white" stroke-width="4"
+                stroke-linecap="round" opacity="0.7" />
+            </svg>
+          </div>
+          <h1>Licitação tem prazo curto... Ser avisado rapidamente é vantagem!</h1>
+          <p class="subheadline">
+            Editais são publicados todos os dias. Quando você descobre no dia da publicação, tem tempo para negociar
+            preços e revisar documentos. Quando descobre uma semana depois, o prazo já está apertado e você compete
+            improvisando.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone=556284282805&text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20a%20receber%20alertas%20de%20licita%C3%A7%C3%B5es%20no%20meu%20WhatsApp!"
+            onclick="return gtag_report_conversion()" target="_blank" class="btn btn-primary">
+            QUERO RECEBER ALERTA DE EDITAIS NO WHATSAPP
+          </a>
+        </div>
+        <div class="hero-image">
+          <img src="imgs/tela1.png" alt="Exemplo de alerta de licitação no WhatsApp" />
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- Reality Section -->
   <section class="section section-alt">
@@ -753,7 +827,7 @@
   </section>
 
   <!-- Solution Section -->
-  <section class="section section-alt">
+  <section class="section section-alt" style="overflow-x: hidden;">
     <div class="container">
       <h2 class="section-title">Apresentando o ZapEditais</h2>
       <div class="reality-content">
@@ -767,6 +841,9 @@
         <p>
           O edital é publicado. Você recebe um alerta. Abre, analisa, decide se vai participar.
         </p>
+      </div>
+      <div class="hero-image">
+        <img src="imgs/tela2.png" alt="Exemplo de alerta de licitação no WhatsApp" />
       </div>
     </div>
   </section>
